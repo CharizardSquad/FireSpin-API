@@ -16,6 +16,12 @@ app.use((req, res) => {
   res.sendStatus(404)
 })
 
+// create get request
+app.get('/getTest', (req, res) => {
+
+})
+
+
 // global error handler for all middleware and routes
 app.use((err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
