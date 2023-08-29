@@ -1,3 +1,5 @@
+@import '_graph';
+
 body {
   display: flex;
   justify-content: center;
@@ -69,3 +71,10 @@ h3{
     margin-top: 10px;
 }
 
+// navBar styles
+.navBar {
+  // margin-left: auto;
+  // display: flex;
+  // gap: 10px;
+  // border: 5px solid rgb(0, 0, 0);
+}

@@ -7,13 +7,16 @@ function NavBar (): ReactElement {
 
   //   function GoLogin (): void { navigate('/login') }
   return (
-    <div className="navBar"> 
+    <div className="navBar">
       <button type="button" className="navButton" onClick={(): void => { navigate('/Home') }}>
         Home
       </button>
 
       <button type="button" className="navButton" onClick={(): void => { navigate('/Login') }}>
         Login
+      </button>
+      <button type="button" className="navButton" onClick={(): void => { navigate('/History') }}>
+        History
       </button>
     </div>
   )
