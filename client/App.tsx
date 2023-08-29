@@ -3,6 +3,7 @@ import NavBar from './Components/NavBar'
 import logo from './assets/logo.png'
 import './sass/App.scss'
 import MainContainer from './containers/MainContainer'
+import LineGraph from './Components/LineGraph'
 
 function App (): ReactElement {
   return (

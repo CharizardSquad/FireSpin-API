@@ -11,7 +11,6 @@ function MainContainer (): ReactElement {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/history" element={<History />} />
       </Routes>
     </div>
   )
