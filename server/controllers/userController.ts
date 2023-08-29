@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import type { Request, Response, NextFunction } from 'express'
+import type { Request, Response, NextFunction, RequestHandler } from 'express'
 import * as dotenv from 'dotenv'
 import path from 'path'
 import User from '../models/User'
