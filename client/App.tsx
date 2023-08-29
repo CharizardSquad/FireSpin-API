@@ -10,15 +10,19 @@ import logo from './assets/logo.png'
 function App (): ReactElement {
   return (
     <div>
-      <div className="logo-container">
-        <img src={logo} alt="shiny charizard logo" id="logo" />
+      {/* <video id="background-video" autoPlay loop muted ></video> */}
+      <div id="app-container">
+        <div className="logo-container">
+          <img src={logo} alt="shiny charizard logo" id="logo" />
+        </div>
+        <h3>FireSpin API</h3>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+        <NavBar />
       </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-      <NavBar />
     </div>
   )
 }

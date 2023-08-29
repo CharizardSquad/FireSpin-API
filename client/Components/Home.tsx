@@ -2,11 +2,16 @@ import React, { useState, type ReactElement } from 'react';
 // import ReactDOM from 'react-dom'
 
 function Home(): ReactElement {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState('')
+  const [callInput, setCallInput] = useState('')
+
+  const handleCallChange = (e: any): void =>{
+    setCallInput(e.target.value)
+  }
 
   const handleInputChange = (e: any): void => {
-    setInput(e.target.value);
-  };
+    setInput(e.target.value)
+  }
   const handlePasteClick = async () => {
     try {
       const pastedText = await navigator.clipboard.readText();
@@ -23,13 +28,20 @@ function Home(): ReactElement {
         className="input-API"
         value={input}
         onChange={handleInputChange}
-        disabled={true}
+        disabled
       />
-      <button id="paste" onClick={handlePasteClick}>
+      <button type="submit" id="paste" onClick={handlePasteClick}>
         Paste
       </button>
+      <input
+        placeholder="Calls"
+        type="text"
+        className="call-freq"
+        value={callInput}
+        onChange={handleCallChange}
+      />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
