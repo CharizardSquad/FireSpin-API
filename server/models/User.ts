@@ -1,7 +1,11 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db';
+import { Model, DataTypes } from 'sequelize'
+import sequelize from '../db'
 
-class User extends Model {}
+class User extends Model {
+  public id!: string
+  public username!: string
+  public password!: string
+}
 
 User.init({
   // Model attributes are defined here
@@ -13,6 +17,6 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false
   }
-}, { sequelize });
+}, { sequelize })
 
-export default User;
+export default User

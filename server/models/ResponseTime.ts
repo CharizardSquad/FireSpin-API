@@ -1,5 +1,5 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db';
+import { Model, DataTypes } from 'sequelize'
+import sequelize from '../db'
 
 class ResponseTime extends Model {}
 
@@ -9,6 +9,6 @@ ResponseTime.init({
     type: DataTypes.INTEGER,
     allowNull: false
   }
-}, { sequelize });
+}, { sequelize })
 
-export default ResponseTime;
+export default ResponseTime

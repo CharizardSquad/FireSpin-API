@@ -1,5 +1,5 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db';
+import { Model, DataTypes } from 'sequelize'
+import sequelize from '../db'
 
 class API extends Model {}
 
@@ -9,6 +9,6 @@ API.init({
     type: DataTypes.STRING,
     allowNull: false
   }
-}, { sequelize });
+}, { sequelize })
 
-export default API;
+export default API
