@@ -23,7 +23,7 @@ function App (): ReactElement {
           <Route path="/home" element={<Home />} />
         </Routes>
         <NavBar />
-        {/* <LineGraph /> */}
+        <LineGraph />
       </div>
     </div>
   )

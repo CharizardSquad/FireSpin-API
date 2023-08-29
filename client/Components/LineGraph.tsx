@@ -5,10 +5,18 @@ import React, {
   type ReactElement
 } from 'react'
 import { Line } from 'react-chartjs-2'
+import { Chart, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
 
-function LineChart () {
+Chart.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement
+)
+
+function LineChart (): ReactElement {
   const data = {
-    labels: [],
+    labels: ['x', 'xx', 'xxx', 'xxxx', 'xxxx'],
     datasets: [
       {
         label: 'Responce Time',
