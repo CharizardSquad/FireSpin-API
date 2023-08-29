@@ -18,14 +18,23 @@
   "author": "Stephen Acosta",
   "license": "ISC",
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.2",
+    "axios": "^1.5.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "google-auth-library": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "sass": "^1.64.1",
+    "sequelize": "^6.32.1",
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.1",
     "uuid": "^9.0.0"
@@ -36,9 +45,11 @@
     "@babel/preset-react": "^7.22.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/jest": "^29.1.1",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^18.7.20",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
@@ -71,3 +82,4 @@
     "webpack-manifest-plugin": "^5.0.0"
   }
 }
+

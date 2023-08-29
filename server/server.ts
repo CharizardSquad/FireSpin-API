@@ -1,27 +1,50 @@
 import express from 'express'
 import type { Request, Response, NextFunction } from 'express'
 import type { ServerError } from '../types'
-// import apiRouter from './routers/apiRouter'
+import bodyParser from 'body-parser'
+import API from './models/API'
+import User from './models/User'
+import ResponseTime from './models/ResponseTime'
+import sequelize from './db'
+import userRoutes from './routes/userRoutes'
 
 const PORT = 3000
 
 const app = express()
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 // general endpoint for routes
-// app.use('/api', apiRouter)
+app.use('/api', userRoutes)
 
 // error handler for bad routes/requests to backend
 app.use((req, res) => {
   res.sendStatus(404)
 })
 
+User.belongsToMany(API, { through: 'UserApi' })
+API.belongsToMany(User, { through: 'UserApi' })
+API.hasMany(ResponseTime)
+ResponseTime.belongsTo(API)
+
+void (async () => {
+  try {
+    await sequelize.authenticate()
+    console.log('Connection has been established successfully.')
+
+    // Synchronize each model with the database
+    await User.sync()
+    await API.sync()
+    await ResponseTime.sync()
+  } catch (error) {
+    console.error('Unable to connect to the database:', error)
+  }
+})()
+
 // create get request
 app.get('/getTest', (req, res) => {
 
 })
-
-
 // global error handler for all middleware and routes
 app.use((err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {

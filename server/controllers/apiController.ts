@@ -1,13 +1,16 @@
-const axios = require('axios')
-
-const apiController = {}
+import axios from 'axios'
+import type { Request, Response, NextFunction } from 'express'
+import API from '../models/API'
+import { type ErrorObject } from '../../types'
 
 // get data from input api
-async function getApiData(): Promise<any> {
-  const dataRetrieve = await axios.get('')
-  console.log(dataRetrieve[0])
+const apiController = {
+  getApiData: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    try {
+    } catch (err) {
 
-//
+    }
+  }
 }
 
-module.exports = apiController
+export default apiController

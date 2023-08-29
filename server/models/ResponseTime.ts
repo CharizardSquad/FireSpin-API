@@ -1,14 +1,14 @@
 import { Model, DataTypes } from 'sequelize'
 import sequelize from '../db'
 
-class API extends Model {}
+class ResponseTime extends Model {}
 
-API.init({
+ResponseTime.init({
   // Model attributes are defined here
-  url: {
-    type: DataTypes.STRING,
+  time: {
+    type: DataTypes.INTEGER,
     allowNull: false
   }
 }, { sequelize })
 
-export default API
+export default ResponseTime
