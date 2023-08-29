@@ -1,6 +1,6 @@
-import bcrypt from 'bycrypt'
+import * as bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import type { Request, Response, NextFunction, RequestHandler } from 'express'
+import type { Request, Response, NextFunction } from 'express'
 import * as dotenv from 'dotenv'
 import path from 'path'
 import User from '../models/User'
@@ -34,39 +34,47 @@ const userController = {
         const passwordMatch: boolean = await bcrypt.compare(password, user.password)
         if (passwordMatch) {
           const token = generateAuthToken(user.id)
-          res.status(200).json({ token, redirect: '/home' })
+          res.locals.token = token
+          res.locals.redirect = '/home'
         } else {
-          res.status(400).json({ redirect: '/login' })
+          res.locals.redirect = '/login'
         }
       } else {
-        res.status(400).json({ redirect: '/signup' })
+        res.locals.redirect = '/signup'
       }
+      next()
     } catch (err) {
       next(
         createErr({
           method: 'userLogin',
           type: 'login process',
-          err
+          err: err as string | object
         })
       )
     }
   },
   userSignup: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    console.log('userSignup line 55')
     try {
       const { username, password } = req.body
-      const user = await User.findOne({ where: { username } })
-      if (user != null) {
-        res.status(400).json({ redirect: '/login' })
+      console.log('Username:', username)
+      console.log('Password:', password)
+      console.log('userSignup line 58')
+      const user = await User.findOne({ where: { username: username } })
+      res.locals.redirect = '/login'
+      if (user === null) {
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const newUser = await User.create({ username: username, password: hashedPassword })
+        console.log(newUser)
       }
-      const hashedPassword = await bcrypt.hash(password, 10)
-      await User.create({ username, password: hashedPassword })
-      res.status(200).json({ redirect: '/login' })
+      next()
     } catch (err) {
+      console.error(err)
       next(
         createErr({
           method: 'userLogin',
           type: 'login process',
-          err
+          err: err as string | object
         })
       )
     }
