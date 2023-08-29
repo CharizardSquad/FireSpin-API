@@ -29,6 +29,7 @@
     "jsonwebtoken": "^9.0.1",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
+    "google-auth-library": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
@@ -81,3 +82,4 @@
     "webpack-manifest-plugin": "^5.0.0"
   }
 }
+
