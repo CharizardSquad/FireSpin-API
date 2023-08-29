@@ -1,0 +1,29 @@
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  type ReactElement
+} from 'react'
+import { Line } from 'react-chartjs-2'
+
+function LineChart () {
+  const data = {
+    labels: [],
+    datasets: [
+      {
+        label: 'Responce Time',
+        data: [1, 2, 3, 2, 6],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        fill: false
+      }
+    ]
+  }
+  return (
+    <div className="line-chart">
+      <Line data={data} />
+    </div>
+  )
+}
+
+export default LineChart
