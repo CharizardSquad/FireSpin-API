@@ -20,11 +20,14 @@ function Home(): ReactElement {
       <input
         placeholder="insert API here"
         type="text"
+        className="input-API"
         value={input}
         onChange={handleInputChange}
         disabled={true}
       />
-      <button onClick={handlePasteClick}>Paste</button>
+      <button id="paste" onClick={handlePasteClick}>
+        Paste
+      </button>
     </div>
   );
 }
