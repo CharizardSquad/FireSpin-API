@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production nodemon server/server.ts",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development nodemon server/server.ts & NODE_ENV=development webpack serve --open",
+    "dev": "NODE_ENV=development nodemon server/server.ts & NODE_ENV=development webpack serve --open --hot",
     "devc": "NODE_ENV=development concurrently \"webpack serve --open\" \"nodemon server/server.ts\"",
     "devServer": "NODE_ENV=production nodemon server/server.ts"
   },
@@ -23,14 +23,16 @@
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "chart.js": "^4.4.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "google-auth-library": "^9.0.0",
     "jsonwebtoken": "^9.0.1",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
-    "google-auth-library": "^9.0.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "sass": "^1.64.1",
@@ -82,4 +84,3 @@
     "webpack-manifest-plugin": "^5.0.0"
   }
 }
-

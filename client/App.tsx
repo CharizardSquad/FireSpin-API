@@ -6,6 +6,7 @@ import NavBar from './Components/NavBar'
 import Login from './Components/Login'
 import logo from './assets/logo.png'
 // import Home from './Main'
+import LineGraph from './Components/LineGraph'
 
 function App (): ReactElement {
   return (
@@ -22,6 +23,7 @@ function App (): ReactElement {
           <Route path="/home" element={<Home />} />
         </Routes>
         <NavBar />
+        <LineGraph />
       </div>
     </div>
   )
