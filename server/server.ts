@@ -1,6 +1,10 @@
 import express from 'express'
 import type { Request, Response, NextFunction } from 'express'
 import type { ServerError } from '../types'
+import API from './models/API';
+import User from './models/User';
+import ResponseTime from './models/ResponseTime';
+import sequelize from './db';
 // import apiRouter from './routers/apiRouter'
 
 const PORT = 3000
@@ -14,14 +18,33 @@ app.use(express.json())
 // error handler for bad routes/requests to backend
 app.use((req, res) => {
   res.sendStatus(404)
-})
+});
+
+User.belongsToMany(API, { through: 'UserApi' });
+API.belongsToMany(User, { through: 'UserApi' });
+API.hasMany(ResponseTime);
+ResponseTime.belongsTo(API);
+
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+
+    // Synchronize each model with the database
+    await User.sync();
+    await API.sync();
+    await ResponseTime.sync();
+
+    // Your application logic here
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+})();
 
 // create get request
 app.get('/getTest', (req, res) => {
 
 })
-
-
 // global error handler for all middleware and routes
 app.use((err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
@@ -40,4 +63,4 @@ if (process.env.NODE_ENV !== 'test') {
     console.log(`App listening on port ${PORT}`)
   })
 }
-export default app
+export default app;
