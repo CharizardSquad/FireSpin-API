@@ -1,19 +1,21 @@
 import express from 'express'
 import type { Request, Response, NextFunction } from 'express'
 import type { ServerError } from '../types'
+import bodyParser from 'body-parser'
 import API from './models/API'
 import User from './models/User'
 import ResponseTime from './models/ResponseTime'
 import sequelize from './db'
-// import apiRouter from './routers/apiRouter'
+import userRoutes from './routes/userRoutes'
 
 const PORT = 3000
 
 const app = express()
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 // general endpoint for routes
-// app.use('/api', apiRouter)
+app.use('/api', userRoutes)
 
 // error handler for bad routes/requests to backend
 app.use((req, res) => {
