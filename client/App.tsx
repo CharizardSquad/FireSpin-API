@@ -1,9 +1,7 @@
 import React, { type ReactElement } from 'react'
-import NavBar from './Components/NavBar'
 import logo from './assets/logo.png'
 import './sass/App.scss'
 import MainContainer from './containers/MainContainer'
-import LineGraph from './Components/LineGraph'
 
 function App (): ReactElement {
   return (
@@ -16,10 +14,8 @@ function App (): ReactElement {
             </div>
             <h3>FireSpin API</h3>
           </div>
-          {/* <NavBar /> */}
         </div>
         <MainContainer />
-        {/* <LineGraph /> */}
       </div>
     </div>
   )
