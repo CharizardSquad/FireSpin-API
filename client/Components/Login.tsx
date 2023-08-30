@@ -1,52 +1,50 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/semi */
-import React, { type ReactElement, useState, ChangeEvent, FormEvent } from 'react';
+import React, { type ReactElement, useState, type ChangeEvent, type FormEvent } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { type JsxElement } from 'typescript';
 // import { GoogleLogin } from "google-auth-library";
- function Login():ReactElement {
-  const [{username, password}, setSignIn] = useState({
+function Login (): ReactElement {
+  const navigate = useNavigate();
+  const [{ username, password }, setSignIn] = useState({
     username: '',
     password: ''
   });
 
-  
-  
-  
   // const formData = new FormData();
-  // const req = async (): Promise<string> => 
+  // const req = async (): Promise<string> =>
   // await fetch('/login', {
-    //   method: 'POST',
-    //   body: formData,
-    // });
-    
-    // const resText= req.text();
-    // setSignIn(resText);
-    let formData;
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      setSignIn((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    };
-    
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) =>{
-      event.preventDefault();
-      console.log('Form was submitted!');
-      try{
-        const response = await fetch('api/login', {
-          method: 'POST',
-          headers: {"Content-Type": "application/json",},
-          body: JSON.stringify({ username, password })
-        })
-        if(response.ok){
-          console.log('Form submitted successfully')
-        } else{
-          console.error('Error submitting form.')
-        }
-  
-      } catch(err){
-        console.error('An error occurred:', err)
+  //   method: 'POST',
+  //   body: formData,
+  // });
+
+  // const resText= req.text();
+  // setSignIn(resText);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = e.target;
+    setSignIn((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<any> => {
+    event.preventDefault();
+    try {
+      const response = await fetch('api/login', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      if (response.ok) {
+        // need auth logic here
+        console.log('Form submitted successfully')
+        navigate('/Home')
       }
-    };
+      console.log('Error submitting form.')
+    } catch (err: any) {
+      console.log(`An error occurred: ${err}`)
+    }
+  };
 
   return (
     <div>
@@ -59,15 +57,17 @@ import React, { type ReactElement, useState, ChangeEvent, FormEvent } from 'reac
         cookiePolicy="single_host_origin"
       /> */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor='username'>Username</label>
-          <input type="text" id="username" onChange={handleChange} value={username} name="username"></input>
-          <label>Password</label>
-          <input type="password" value={password} id="password" onChange={handleChange} name="password"></input>
+        <label htmlFor="username">Username</label>
+        <input type="text" id="username" onChange={handleChange} value={username} name="username" />
+        <label>Password</label>
+        <input type="password" value={password} id="password" onChange={handleChange} name="password" />
         <button type="submit">Submit</button>
       </form>
+      {/* <button type="button" className="navButton" onClick={(): void => { navigate('/Home') }}>
+        Login
+      </button> */}
     </div>
   );
 }
 
 export default Login;
-
