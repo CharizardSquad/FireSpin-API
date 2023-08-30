@@ -53,6 +53,7 @@ function Login (): ReactElement {
         <label>Password</label>
         <input type="password" value={password} id="password" onChange={handleChange} name="password" />
         <button type="submit">Submit</button>
+        <button type="button" onClick={(): void => {navigate('/signup')}}>Sign-Up</button>
       </form>
     </div>
   )

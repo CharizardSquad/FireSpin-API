@@ -53,8 +53,8 @@ h3{
     position: relative;
     margin-top: 27%;
     height: 30vh;
-    width: 45vw;
-    top: 8vh;
+    width: 415px;
+    top: 7vh;
     left: 50%;
     transform: translate(-50%, -50%);
     // border-radius: 10px;
@@ -67,7 +67,12 @@ h3{
     // align-items: center;
     // width: 46vh;
     // height: 30vh;
-}
+  }
+  @media (min-width: 761px){
+   #app-container{ 
+    max-width: 760px ;
+   }
+  }
 
 #loginText, #signupText, #homeText{
   font-family: 'Rubik Iso', cursive;
