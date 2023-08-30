@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose --coverage",
     "start": "NODE_ENV=production nodemon server/server.ts",
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development nodemon server/server.ts & NODE_ENV=development webpack serve --open --hot",
