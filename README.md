@@ -1,4 +1,4 @@
-<img src="" style="display: block; margin: 10px auto 30px;">
+<img src="/client/assets/logo.png" style="display: block; margin: 10px auto 30px;">
 
 # ART
 -Welcome to ART (API Response Time)
