@@ -9,8 +9,8 @@ function MainContainer (): ReactElement {
   return (
     <div className="main-container">
       <Routes>
-        <Route path="/" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
       </Routes>
     </div>

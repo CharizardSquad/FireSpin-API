@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/semi */
 import React, { type ReactElement, useState, type ChangeEvent, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 // import { type JsxElement } from 'typescript';
 // import { GoogleLogin } from "google-auth-library";
 function Login (): ReactElement {
@@ -24,15 +25,18 @@ function Login (): ReactElement {
     try {
       const response = await fetch('api/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-        
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
       })
-      if (response.ok) {
+      const resData = await response.json();
+      console.log(resData)
+      if (resData.redirect === '/signup') {
         // need auth logic here
         console.log('Form submitted successfully')
-        navigate('/Home')
+        navigate('/signup')
+      } else {
+        navigate('/home')
       }
-      console.log('Error submitting form.')
     } catch (err: any) {
       console.log(`An error occurred: ${err}`)
     }
