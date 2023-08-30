@@ -8,4 +8,8 @@ router.post('/add', apiController.getApiData, (req: Request, res: Response, next
   res.status(200).json(res.locals.responseTimes)
 })
 
+router.post('/history', apiController.getApiHistory, (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).json(res.locals.apiHistory)
+})
+
 export default router

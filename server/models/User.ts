@@ -1,4 +1,4 @@
-import { Model, DataTypes, BelongsToManyAddAssociationMixin, BelongsToManyHasAssociationMixin } from 'sequelize'
+import { Model, DataTypes, BelongsToManyAddAssociationMixin, BelongsToManyHasAssociationMixin, BelongsToManyGetAssociationsMixin } from 'sequelize'
 import sequelize from '../db'
 import API from './API'
 
@@ -9,6 +9,7 @@ class User extends Model {
 
   declare addAPI: BelongsToManyAddAssociationMixin<API, number>
   declare hasAPI: BelongsToManyHasAssociationMixin<API, number>
+  declare getAPIs: BelongsToManyGetAssociationsMixin<API>
 }
 
 User.init({
