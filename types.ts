@@ -7,3 +7,7 @@ export interface ErrorObject {
   log: string
   message: { err: string }
 }
+
+export interface HistoryProps {
+  closeModal: () => void
+}

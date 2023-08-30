@@ -1,42 +1,38 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/semi */
-import React, { type ReactElement, useState, type ChangeEvent, type FormEvent } from 'react';
+import React, { type ReactElement, useState, type ChangeEvent, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { type JsxElement } from 'typescript';
-// import { GoogleLogin } from "google-auth-library";
-function Login (): ReactElement {
-  const navigate = useNavigate();
+// import Login from './Login'
+
+function SignUp (): ReactElement {
+  const navigate = useNavigate()
   const [{ username, password }, setSignIn] = useState({
     username: '',
     password: ''
-  });
-
+  })
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setSignIn((prevData) => ({
       ...prevData,
       [name]: value
-    }));
-  };
+    }))
+  }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<any> => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       const response = await fetch('api/login', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
       })
       if (response.ok) {
-        // need auth logic here
         console.log('Form submitted successfully')
-        navigate('/Home')
+        navigate('/Login')
       }
       console.log('Error submitting form.')
     } catch (err: any) {
       console.log(`An error occurred: ${err}`)
     }
-  };
-
+  }
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -50,4 +46,4 @@ function Login (): ReactElement {
   )
 }
 
-export default Login;
+export default SignUp
