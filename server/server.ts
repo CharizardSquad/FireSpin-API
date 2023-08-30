@@ -7,6 +7,7 @@ import User from './models/User'
 import ResponseTime from './models/ResponseTime'
 import sequelize from './db'
 import userRoutes from './routes/userRoutes'
+import apiRoutes from './routes/apiRoutes'
 
 const PORT = 3000
 
@@ -16,26 +17,25 @@ app.use(express.json())
 
 // general endpoint for routes
 app.use('/api', userRoutes)
+app.use('/api', apiRoutes)
 
 // error handler for bad routes/requests to backend
 app.use((req, res) => {
   res.sendStatus(404)
 })
 
-User.belongsToMany(API, { through: 'UserApi' })
-API.belongsToMany(User, { through: 'UserApi' })
-API.hasMany(ResponseTime)
-ResponseTime.belongsTo(API)
-
 void (async () => {
   try {
     await sequelize.authenticate()
     console.log('Connection has been established successfully.')
 
+    User.belongsToMany(API, { through: 'UserApi' })
+    API.belongsToMany(User, { through: 'UserApi' })
+    API.hasMany(ResponseTime)
+    ResponseTime.belongsTo(API, { foreignKey: 'APIId', as: 'api' })
+
     // Synchronize each model with the database
-    await User.sync()
-    await API.sync()
-    await ResponseTime.sync()
+    await sequelize.sync()
   } catch (error) {
     console.error('Unable to connect to the database:', error)
   }
