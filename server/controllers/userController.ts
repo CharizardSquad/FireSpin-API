@@ -4,7 +4,7 @@ import type { Request, Response, NextFunction } from 'express'
 import * as dotenv from 'dotenv'
 import path from 'path'
 import User from '../models/User'
-import { type ErrorObject } from '../../types'
+import { type ErrorObject } from '../../types/types'
 
 dotenv.config({ path: path.join(__dirname, '.env') })
 
