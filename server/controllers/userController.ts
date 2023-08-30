@@ -31,13 +31,16 @@ const userController = {
       if (user != null) {
         const passwordMatch: boolean = await bcrypt.compare(password, user.password)
         if (passwordMatch) {
-          const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' })
+          const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '3h' })
           res.locals.token = token
+          res.locals.status = 200
           res.locals.redirect = '/home'
         } else {
+          res.locals.status = 400
           res.locals.redirect = '/login'
         }
       } else {
+        res.locals.status = 400
         res.locals.redirect = '/signup'
       }
       next()
@@ -59,6 +62,9 @@ const userController = {
       if (user === null) {
         const hashedPassword = await bcrypt.hash(password, 10)
         await User.create({ username: username, password: hashedPassword })
+        res.locals.status = 200
+      } else {
+        res.locals.status = 400
       }
       next()
     } catch (err) {

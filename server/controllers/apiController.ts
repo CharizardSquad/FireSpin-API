@@ -26,7 +26,10 @@ const apiController = {
   getApiData: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { url, calls } = req.body
-      const token = req.cookies.authToken
+      const token = req.headers.authorization as string
+      // console.log('req:', req)
+      // console.log('cookies', req.cookies)
+      // console.log('headers', req.headers)
       const decodedToken = jwt.verify(token, secretKey) as JwtPayload
       const { userId } = decodedToken
 
@@ -59,6 +62,43 @@ const apiController = {
       })
       await Promise.all(apiRequests)
       res.locals.responseTimes = responseArr
+      next()
+    } catch (err) {
+      next(
+        createErr({
+          method: 'getApiData',
+          type: 'api fetch',
+          err: err as string | object
+        })
+      )
+    }
+  },
+  getApiHistory: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const token = req.cookies.authToken
+      const decodedToken = jwt.verify(token, secretKey) as JwtPayload
+      const { userId } = decodedToken
+
+      const user = await User.findByPk(userId)
+      if (user !== null) {
+        const APIs = await user.getAPIs()
+        const apiHistoryPromises = APIs.map(async (api: API) => {
+          const responseTimes: ResponseTime[] = await api.getResponseTimes()
+          const responseTimesArray = responseTimes.map(rt => rt.time)
+          const numCalls = responseTimesArray.length
+          const totalResponseTime = responseTimesArray.reduce((sum, time) => sum + time, 0)
+          const averageResponseTime = numCalls === 0 ? 0 : totalResponseTime / numCalls
+
+          return {
+            apiUrl: api.url,
+            numberOfCalls: numCalls,
+            averageResponseTime,
+            responseTimesArray
+          }
+        })
+        const apiHistory: any[] = await Promise.all(apiHistoryPromises)
+        res.locals.apiHistory = apiHistory
+      }
       next()
     } catch (err) {
       next(

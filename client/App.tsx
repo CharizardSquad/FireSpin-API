@@ -6,20 +6,19 @@ import MainContainer from './containers/MainContainer'
 
 function App (): ReactElement {
   return (
-    <div>
-      {/* <img src={GBA} alt="Game Boy Advanced Color" id="background" /> */}
-      <div id="app-container">
-        <div className="header">
-          <div className="center-container">
-            <div className="logo-container">
-              <img src={logo} alt="shiny charizard logo" id="logo" />
-            </div>
-            <h3>FireSpin API</h3>
+
+    <div id="app-container">
+      <div className="header">
+        <div className="center-container">
+          <div className="logo-container">
+            <img src={logo} alt="shiny charizard logo" id="logo" />
           </div>
+          <h3>FireSpin API</h3>
         </div>
-        <MainContainer />
       </div>
+      <MainContainer />
     </div>
+
   )
 }
 export default App
