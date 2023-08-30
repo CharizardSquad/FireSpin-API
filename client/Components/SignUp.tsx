@@ -39,6 +39,7 @@ function SignUp (): ReactElement {
   }
   return (
     <div>
+      <h1 id="signupText">SignUp</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" id="username" onChange={handleChange} value={username} name="username" />
