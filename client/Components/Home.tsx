@@ -25,14 +25,14 @@ function Home (): ReactElement {
   const handleInputChange = (e: any): void => {
     setInput(e.target.value)
   }
-  const handlePasteClick = async (): Promise<any> => {
-    try {
-      const pastedText = await navigator.clipboard.readText()
-      setInput(pastedText)
-    } catch (err) {
-      return 'Unable to paste text'
-    }
-  }
+  // const handlePasteClick = async (): Promise<any> => {
+  //   try {
+  //     const pastedText = await navigator.clipboard.readText()
+  //     setInput(pastedText)
+  //   } catch (err) {
+  //     return 'Unable to paste text'
+  //   }
+  // }
 
   const handleGetData = async (): Promise<void> => {
     try {
@@ -72,11 +72,10 @@ function Home (): ReactElement {
           className="input-API"
           value={input}
           onChange={handleInputChange}
-          disabled
         />
-        <button type="submit" id="paste" onClick={handlePasteClick}>
+        {/* <button type="submit" id="paste" onClick={handlePasteClick}>
           Paste
-        </button>
+        </button> */}
         <input
           placeholder="Calls"
           type="text"
