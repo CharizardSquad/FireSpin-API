@@ -17,4 +17,5 @@ export interface HistoryData {
   averageResponseTime: number
   numberOfCalls: number
   APIId: number
+  responseTimesArray: []
 }
