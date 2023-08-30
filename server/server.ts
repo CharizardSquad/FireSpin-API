@@ -1,7 +1,8 @@
 import express from 'express'
 import type { Request, Response, NextFunction } from 'express'
-import type { ServerError } from '../types'
+import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
+import type { ServerError } from '../types'
 import API from './models/API'
 import User from './models/User'
 import ResponseTime from './models/ResponseTime'
@@ -13,6 +14,7 @@ const PORT = 3000
 
 const app = express()
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 app.use(express.json())
 
 // general endpoint for routes
@@ -31,7 +33,7 @@ void (async () => {
 
     User.belongsToMany(API, { through: 'UserApi' })
     API.belongsToMany(User, { through: 'UserApi' })
-    API.hasMany(ResponseTime)
+    API.hasMany(ResponseTime, { foreignKey: 'APIId' })
     ResponseTime.belongsTo(API, { foreignKey: 'APIId', as: 'api' })
 
     // Synchronize each model with the database
