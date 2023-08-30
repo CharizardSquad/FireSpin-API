@@ -25,7 +25,7 @@ function LineChart ({ responseTimes }: { responseTimes: number[] }): ReactElemen
     const selectedData = historyData.find((data) => data.apiUrl === selectedDataset)
     if (selectedData != null) {
       setChartData(selectedData.responseTimesArray)
-    }else {
+    } else {
       setChartData([])
     }
   }, [historyData, selectedDataset])
@@ -38,9 +38,10 @@ function LineChart ({ responseTimes }: { responseTimes: number[] }): ReactElemen
         data: chartData,
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 2,
-        fill: false
+        fill: false,
+        color: '#fffff'
       }
-    ]
+    ],
   }
   return (
     // <div className="lineGraph">
