@@ -16,7 +16,7 @@ function App (): ReactElement {
             </div>
             <h3>FireSpin API</h3>
           </div>
-          <NavBar />
+          {/* <NavBar /> */}
         </div>
         <MainContainer />
         {/* <LineGraph /> */}
