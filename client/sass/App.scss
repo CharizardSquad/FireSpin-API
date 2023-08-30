@@ -74,12 +74,27 @@ h3{
    }
   }
 
-#loginText, #signupText, #homeText{
+
+
+#loginText, #signupText, #homeText, #modalText{
   font-family: 'Rubik Iso', cursive;
   padding: 0px;
   margin-bottom: auto;
 }
+.modal{
+  height: 25px;
+  width: fit-content
+}
+.history-entry{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: small;
+  display: flex;
+  flex-direction: wrap;
+  color:rgb(117, 25, 25);
+  font-weight: bold;
+  overflow: hidden;
 
+}
 
 #home-container{
   display: flex;
@@ -89,6 +104,16 @@ h3{
   align-items: center;
 }
 
+.modal-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 5px;
+  left: 25px;
+  overflow: hidden;
+}
 
 .header{
   display: flex;

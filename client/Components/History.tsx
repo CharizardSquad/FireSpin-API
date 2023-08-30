@@ -67,7 +67,7 @@ function History ({ closeModal }: HistoryProps): ReactElement {
   return (
     <div className="modal">
       <div className="modal-content">
-        <h2>History Modal</h2>
+        <h2 id="modalText">History</h2>
         <button type="button" onClick={closeModal}>
           Close
         </button>
