@@ -25,8 +25,8 @@ const secretKey = process.env.SECRET_KEY ?? ''
 const apiController = {
   getApiData: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { url, calls, token } = req.body
-      // const token = req.cookies.authToken
+      const { url, calls } = req.body
+      const token = req.cookies.authToken
       const decodedToken = jwt.verify(token, secretKey) as JwtPayload
       const { userId } = decodedToken
 

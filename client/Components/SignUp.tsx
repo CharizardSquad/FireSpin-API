@@ -19,7 +19,7 @@ function SignUp (): ReactElement {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<any> => {
     event.preventDefault()
     try {
-      const response = await fetch('api/login', {
+      const response = await fetch('/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -28,7 +28,6 @@ function SignUp (): ReactElement {
         console.log('Form submitted successfully')
         navigate('/Login')
       }
-      console.log('Error submitting form.')
     } catch (err: any) {
       console.log(`An error occurred: ${err}`)
     }
@@ -40,7 +39,7 @@ function SignUp (): ReactElement {
         <input type="text" id="username" onChange={handleChange} value={username} name="username" />
         <label>Password</label>
         <input type="password" value={password} id="password" onChange={handleChange} name="password" />
-        <button type="submit">Submit</button>
+        <button id="submit" type="submit">Submit</button>
       </form>
     </div>
   )
