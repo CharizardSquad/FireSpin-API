@@ -35,6 +35,7 @@ function Login (): ReactElement {
         console.log('Form submitted successfully')
         navigate('/signup')
       } else {
+        
         navigate('/home')
       }
     } catch (err: any) {
