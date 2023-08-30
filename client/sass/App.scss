@@ -11,8 +11,11 @@ html{
 body {
   display: flex;
   justify-content: center;
-  flex: 1;
+  // flex: 1;
   align-items: center;
+    height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 h3{
@@ -22,21 +25,40 @@ h3{
     text-shadow: -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255);
 }
 
+.app {
+  // display: flex;
+  // height: 100vh;
+}
+
 #app-container{
+    // position: relative;
+    // height: 27%;
+    // width: 45%;
+    // top: 45vh;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // border-radius: 10px;
+    // border: 5px solid rgb(0, 0, 0);
+    // padding: 10px;
+    // align-content: center;
+    // background-color: rgb(242, 145, 48);
+    // display: flex;
+    // flex-direction: column;
+    // // align-items: center;
     position: relative;
-    height: 27%;
-    width: 45%;
-    top: 45vh;
+    margin-top: 27vh;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
+    // border-radius: 10px;
     border: 5px solid rgb(0, 0, 0);
     padding: 10px;
-    align-content: center;
+    // align-content: center;
     background-color: rgb(242, 145, 48);
     display: flex;
     flex-direction: column;
     // align-items: center;
+    width: 46vh;
+    height: 30vh;
 }
 
 

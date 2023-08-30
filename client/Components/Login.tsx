@@ -1,46 +1,47 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/semi */
-import React, { type ReactElement, useState, type ChangeEvent, type FormEvent } from 'react';
+import React, { type ReactElement, useState, type ChangeEvent, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 // import { type JsxElement } from 'typescript';
 // import { GoogleLogin } from "google-auth-library";
 function Login (): ReactElement {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [{ username, password }, setSignIn] = useState({
     username: '',
     password: ''
-  });
+  })
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setSignIn((prevData) => ({
       ...prevData,
       [name]: value
-    }));
-  };
+    }))
+  }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<any> => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       const response = await fetch('api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
       })
-      const resData = await response.json();
+      const resData = await response.json()
       console.log(resData)
       if (resData.redirect === '/signup') {
         // need auth logic here
         console.log('Form submitted successfully')
         navigate('/signup')
       } else {
-        navigate('/home')
+        console.log('token:', resData.token)
+        navigate('/home', { state: { token: resData.token } })
       }
     } catch (err: any) {
       console.log(`An error occurred: ${err}`)
     }
-  };
+  }
 
   return (
     <div>
@@ -55,4 +56,4 @@ function Login (): ReactElement {
   )
 }
 
-export default Login;
+export default Login
