@@ -7,8 +7,7 @@ describe('Signup Test', () => {
 
     // Submit the form
     cy.contains('Submit').click();
-    // cy.contains('Submit').click();
-    // cy.url().should('include', 'signup')
+    cy.url().should('include', 'home')
 
     // cy.get('#username').type('username');
     // cy.get('#password').type('password');
