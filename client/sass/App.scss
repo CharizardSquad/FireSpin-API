@@ -1,5 +1,13 @@
 @import '_graph';
 
+html{
+   background: url('https://wallpaperaccess.com/full/2717776.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -15,10 +23,10 @@ h3{
 }
 
 #app-container{
-    position: fixed;
-    height: 50%;
-    width: 50%;
-    top: 50%;
+    position: relative;
+    height: 27%;
+    width: 45%;
+    top: 45vh;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
@@ -30,6 +38,8 @@ h3{
     flex-direction: column;
     // align-items: center;
 }
+
+
 
 .header{
   display: flex;
@@ -54,6 +64,12 @@ h3{
   /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
   
 }
+
+// #background{
+//   object-fit: cover;
+//   height: 100%;
+//   width: 100%
+// }
 
 #paste {
   color: rgb(0, 0, 0);

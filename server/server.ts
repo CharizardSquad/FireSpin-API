@@ -1,6 +1,6 @@
 import express from 'express'
 import type { Request, Response, NextFunction } from 'express'
-import type { ServerError } from '../types'
+import type { ServerError } from '../types/types'
 import bodyParser from 'body-parser'
 import API from './models/API'
 import User from './models/User'

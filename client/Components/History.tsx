@@ -1,5 +1,5 @@
 import React, { useState, type ReactElement } from 'react'
-import type { HistoryProps } from '../../types'
+import type { HistoryProps } from '../../types/types'
 
 function History ({ closeModal }: HistoryProps): ReactElement {
   return (
