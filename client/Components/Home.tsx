@@ -64,29 +64,32 @@ function Home (): ReactElement {
   // console.log('right before render:', responseTimes)
   return (
     <div>
-      <input
-        placeholder="insert API here"
-        type="text"
-        className="input-API"
-        value={input}
-        onChange={handleInputChange}
-        disabled
-      />
-      <button type="submit" id="paste" onClick={handlePasteClick}>
-        Paste
-      </button>
-      <input
-        placeholder="Calls"
-        type="text"
-        className="call-freq"
-        value={callInput}
-        onChange={handleCallChange}
-      />
-      <button type="button" onClick={handleGetData}>
-        Fetch Data
-      </button>
+      <div id="home-container">
+        <h1 id="homeText">Home</h1>
+        <input
+          placeholder="insert API here"
+          type="text"
+          className="input-API"
+          value={input}
+          onChange={handleInputChange}
+          disabled
+        />
+        <button type="submit" id="paste" onClick={handlePasteClick}>
+          Paste
+        </button>
+        <input
+          placeholder="Calls"
+          type="text"
+          className="call-freq"
+          value={callInput}
+          onChange={handleCallChange}
+        />
+        <button type="button" onClick={handleGetData}>
+          Fetch Data
+        </button>
+        {responseTimes.length > 0 && <LineGraph responseTimes={responseTimes} />}
+      </div>
       <NavBar />
-      {responseTimes.length > 0 && <LineGraph responseTimes={responseTimes} />}
     </div>
   )
 }
