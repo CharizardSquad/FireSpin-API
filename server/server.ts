@@ -35,6 +35,8 @@ void (async () => {
     API.belongsToMany(User, { through: 'UserApi' })
     API.hasMany(ResponseTime, { foreignKey: 'APIId' })
     ResponseTime.belongsTo(API, { foreignKey: 'APIId', as: 'api' })
+    User.hasMany(ResponseTime, { foreignKey: 'UserId' })
+    ResponseTime.belongsTo(User, { foreignKey: 'UserId', as: 'user' })
 
     // Synchronize each model with the database
     await sequelize.sync()
