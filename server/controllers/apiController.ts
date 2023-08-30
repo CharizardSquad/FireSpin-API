@@ -75,7 +75,8 @@ const apiController = {
   },
   getApiHistory: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const token = req.cookies.authToken
+      // const token = req.cookies.authToken
+      const token = req.headers.authorization as string
       const decodedToken = jwt.verify(token, secretKey) as JwtPayload
       const { userId } = decodedToken
 

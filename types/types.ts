@@ -11,3 +11,9 @@ export interface ErrorObject {
 export interface HistoryProps {
   closeModal: () => void
 }
+
+export interface HistoryData {
+  apiUrl: string
+  averageResponseTime: number
+  numberOfCalls: number
+}
