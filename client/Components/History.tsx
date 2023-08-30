@@ -1,11 +1,12 @@
-import React, { useState, useEffect, type ReactElement } from 'react'
+import React, { useState, useEffect, type ReactElement, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import type { HistoryProps, HistoryData } from '../../types/types'
+import { GlobalContext } from './Contexts'
 
 function History ({ closeModal }: HistoryProps): ReactElement {
   const location = useLocation()
-  const [historyData, setHistoryData] = useState<HistoryData[]>([])
+  const { historyData, setHistoryData } = useContext(GlobalContext)
   // const [entries, setEntries] = useState(historyData)
   const token = location.state?.token
   console.log('token in history:', token)
