@@ -4,7 +4,7 @@ import type { Request, Response, NextFunction } from 'express'
 import API from '../models/API'
 import User from '../models/User'
 import ResponseTime from '../models/ResponseTime'
-import { type ErrorObject } from '../../types'
+import { type ErrorObject } from '../../types/types'
 
 // eslint-disable-next-line max-len
 const createErr = (errInfo: { method: string, type: string, err: object | string }): ErrorObject => {

@@ -23,8 +23,9 @@ function Login (): ReactElement {
     event.preventDefault();
     try {
       const response = await fetch('api/login', {
-        method: 'GET',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' }
+        
       })
       if (response.ok) {
         // need auth logic here
