@@ -12,4 +12,8 @@ router.post('/history', apiController.getApiHistory, (req: Request, res: Respons
   res.status(200).json(res.locals.apiHistory)
 })
 
+router.post('/delete', apiController.deleteApiHistory, (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).json()
+})
+
 export default router

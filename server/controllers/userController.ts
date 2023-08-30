@@ -57,11 +57,11 @@ const userController = {
   userSignup: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { username, password } = req.body
-      const user = await User.findOne({ where: { username: username } })
+      const user = await User.findOne({ where: { username } })
       res.locals.redirect = '/login'
       if (user === null) {
         const hashedPassword = await bcrypt.hash(password, 10)
-        await User.create({ username: username, password: hashedPassword })
+        await User.create({ username, password: hashedPassword })
         res.locals.status = 200
       } else {
         res.locals.status = 400
