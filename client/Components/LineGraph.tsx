@@ -14,13 +14,14 @@ Chart.register(
   LineElement
 )
 
-function LineChart (): ReactElement {
+function LineChart ({ responseTimes }: { responseTimes: number[] }): ReactElement {
+  console.log('resTime in lineGraph:', responseTimes)
   const data = {
-    labels: ['x', 'xx', 'xxx', 'xxxx', 'xxxx'],
+    labels: responseTimes.map((index) => String(index)),
     datasets: [
       {
         label: 'Responce Time',
-        data: [1, 2, 3, 2, 6],
+        data: responseTimes,
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 2,
         fill: false

@@ -17,12 +17,12 @@ function NavBar (): ReactElement {
   }
   return (
     <div className="navBar">
-      <button type="button" className="navButton" onClick={(): void => { navigate('/Home') }}>
-        Home
+      <button type="button" className="navButton" onClick={(): void => { navigate('/') }}>
+        SignOut
       </button>
-      <button type="button" className="navButton" onClick={(): void => { navigate('/History') }}>
+      {/* <button type="button" className="navButton" onClick={(): void => { navigate('/History') }}>
         History
-      </button>
+      </button> */}
       <button type="button" className="navButton" onClick={openModal}>
         History
       </button>
