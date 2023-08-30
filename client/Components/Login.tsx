@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 // import { type JsxElement } from 'typescript';
 // import { GoogleLogin } from "google-auth-library";
+
 function Login (): ReactElement {
   const navigate = useNavigate()
   const [{ username, password }, setSignIn] = useState({
@@ -45,6 +46,7 @@ function Login (): ReactElement {
 
   return (
     <div>
+      <h1 id="loginText">LogIn</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" id="username" onChange={handleChange} value={username} name="username" />
