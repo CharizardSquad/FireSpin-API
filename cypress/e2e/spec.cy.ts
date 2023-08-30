@@ -21,7 +21,6 @@ describe('Signup Test', () => {
     cy.get('.modal-content').within(() => {
       cy.contains(pastedText).should('exist');
     });
-
     });
 });
 
