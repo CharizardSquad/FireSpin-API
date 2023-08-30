@@ -44,7 +44,7 @@ function SignUp (): ReactElement {
         <input type="text" id="username" onChange={handleChange} value={username} name="username" />
         <label>Password</label>
         <input type="password" value={password} id="password" onChange={handleChange} name="password" />
-        <button type="submit">Submit</button>
+        <button id="submit" type="submit">Submit</button>
       </form>
     </div>
   )
