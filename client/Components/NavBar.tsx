@@ -20,9 +20,8 @@ function NavBar (): ReactElement {
       <button type="button" className="navButton" onClick={(): void => { navigate('/Home') }}>
         Home
       </button>
-
-      <button type="button" className="navButton" onClick={(): void => { navigate('/Login') }}>
-        Login
+      <button type="button" className="navButton" onClick={(): void => { navigate('/History') }}>
+        History
       </button>
       <button type="button" className="navButton" onClick={openModal}>
         History
