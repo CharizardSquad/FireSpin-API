@@ -51,7 +51,7 @@ If you are considering contributing to ART in the context of a group small-mediu
 Continue to integrate and improve correct usage of types on front & back end. Fill the types.ts file out more.
 
 ## Continue Testing coverage for Unit % E2E Testing
-Currently testing coverage for unit and e2e is about 25% completed
+Currently testing coverage for unit and e2e is about 5% completed
 
 ## Ideas for new features
 
