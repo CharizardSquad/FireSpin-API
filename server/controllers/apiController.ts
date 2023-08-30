@@ -117,6 +117,7 @@ const apiController = {
     try {
       const token = req.headers.authorization as string
       const { APIId } = req.body
+      console.log('hi from delete api', APIId)
       const decodedToken = jwt.verify(token, secretKey) as JwtPayload
       const { userId } = decodedToken
       const user = await User.findByPk(userId)

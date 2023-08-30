@@ -10,29 +10,32 @@ function History ({ closeModal }: HistoryProps): ReactElement {
   const token = location.state?.token
   console.log('token in history:', token)
 
-  // const handleDeleteEntry = async (index: number) => {
-  //   const entryToDelete = entries[index]
+  const handleDeleteEntry = async (APIId: number): Promise<void> => {
+    // const entryToDelete = entries[index]
+    console.log('apiid:', APIId)
 
-  //   try {
-  //     // Send a delete request to the backend API
-  //     const response = await fetch(`/api/delete/${xxx}`, {
-  //       method: 'DELETE',
-  //       credentials: 'include',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
+    try {
+      // Send a delete request to the backend API
+      const response = await fetch('/api/delete', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token
+        },
+        body: JSON.stringify({ APIId })
+      })
 
-  //     if (response.ok) {
-  //       const updatedEntries = entries.filter((_, i) => i !== index);
-  //       setEntries(updatedEntries)
-  //     } else {
-  //       console.error('Error deleting entry');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error deleting entry', error);
-  //   }
-  // }
+      if (response.ok) {
+        const updatedHistoryData = historyData.filter((entry) => entry.APIId !== APIId)
+        setHistoryData(updatedHistoryData)
+      } else {
+        console.error('Error deleting entry')
+      }
+    } catch (error) {
+      console.error('Error deleting entry', error)
+    }
+  }
 
   const fetchHistoryData = async (): Promise<void> => {
     try {
@@ -85,6 +88,7 @@ function History ({ closeModal }: HistoryProps): ReactElement {
                 {' '}
                 {entry.numberOfCalls}
               </div>
+              <button type="button" onClick={async () => { await handleDeleteEntry(entry.APIId) }}>DELETE</button>
             </div>
           ))}
         </div>

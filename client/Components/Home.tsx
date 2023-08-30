@@ -55,7 +55,7 @@ function Home (): ReactElement {
       }
 
       const responseData = await response.json()
-      // console.log(responseData.length) // in ms?
+      console.log('responseData:', responseData) // in ms?
       setResponseTimes(responseData)
     } catch (err) {
       console.error('Error fetching data', err)

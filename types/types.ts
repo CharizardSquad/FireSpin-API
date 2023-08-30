@@ -16,4 +16,5 @@ export interface HistoryData {
   apiUrl: string
   averageResponseTime: number
   numberOfCalls: number
+  APIId: number
 }
