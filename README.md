@@ -1,21 +1,23 @@
 <img src="/client/assets/logo.png" style="display: block; margin: 10px auto 30px;">
 
-# ART
--Welcome to ART (API Response Time)
+# FireSpin API
+Welcome to FireSpin API
 
 ## Highlights 
--ART is a web application that functions as a developer tool to reference the overall health of various API’s for current and future product development. 
+FireSpin API is a web application that functions as a developer tool to reference the overall health of various API's for current and future product development. 
 
 ## Built With
--React
--React Router
--Chart.js
--Jest
--Sequelize
--PostgreSQL
+- React
+- TypeScript
+- React Router
+- Chart.js
+- Cypress
+- Jest
+- Sequelize
+- PostgreSQL
 
 ## Interested in Iterating?
--Checkout our DEV Readme for more!
+Checkout our DEV Readme for more!
 
 ## Authors
 - **Alec Derritt** - [Blast61](https://github.com/Blast61)
