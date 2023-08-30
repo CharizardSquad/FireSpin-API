@@ -4,14 +4,14 @@
 -Welcome to ART (API Response Time)
 
 ## Highlights 
--ART is a web application that functions as a developers tool to reference the overall health of various API’s for current and future product development. 
+-ART is a web application that functions as a developer tool to reference the overall health of various API’s for current and future product development. 
 
 ## Built With
 -React
 -React Router
 -Chart.js
 -Jest
--Sequilize
+-Sequelize
 -PostgreSQL
 
 ## Interested in Iterating?
