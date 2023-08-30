@@ -61,13 +61,17 @@ function Login (): ReactElement {
         <input type="text" id="username" onChange={handleChange} value={username} name="username" />
         <label>Password</label>
         <input type="password" value={password} id="password" onChange={handleChange} name="password" />
+        <label htmlFor="username">Username</label>
+        <input type="text" id="username" onChange={handleChange} value={username} name="username" />
+        <label>Password</label>
+        <input type="password" value={password} id="password" onChange={handleChange} name="password" />
         <button type="submit">Submit</button>
       </form>
       {/* <button type="button" className="navButton" onClick={(): void => { navigate('/Home') }}>
         Login
       </button> */}
     </div>
-  );
+  )
 }
 
 export default Login;

@@ -1,3 +1,5 @@
+@import '_graph';
+
 body {
   display: flex;
   justify-content: center;
@@ -24,6 +26,25 @@ h3{
     padding: 10px;
     align-content: center;
     background-color: rgb(242, 145, 48);
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  // margin-top: 20px;
 }
 
 .input-API {
@@ -52,12 +73,10 @@ h3{
     height: 100px;
     border-radius: 50%;
     overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-
 }
 
 .logo-container img{
@@ -65,7 +84,23 @@ h3{
     max-height: 140%;
 }
 
+.logo-title-container {
+  display: flex;
+  align-items: center; 
+}
+
 .input-API{
     margin-top: 10px;
 }
 
+// navBar styles
+.navBar {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  margin-left: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}

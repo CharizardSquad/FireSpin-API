@@ -28,7 +28,7 @@ function LineChart (): ReactElement {
     ]
   }
   return (
-    <div className="line-chart">
+    <div className="lineGraph">
       <Line data={data} />
     </div>
   )

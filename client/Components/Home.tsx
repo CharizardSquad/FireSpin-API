@@ -2,11 +2,11 @@ import React, { useState, type ReactElement } from 'react'
 import NavBar from './NavBar'
 import LineGraph from './LineGraph'
 
-function Home(): ReactElement {
+function Home (): ReactElement {
   const [input, setInput] = useState('')
   const [callInput, setCallInput] = useState('')
 
-  const handleCallChange = (e: any): void =>{
+  const handleCallChange = (e: any): void => {
     setCallInput(e.target.value)
   }
 
@@ -15,10 +15,10 @@ function Home(): ReactElement {
   }
   const handlePasteClick = async (): Promise<any> => {
     try {
-      const pastedText = await navigator.clipboard.readText();
-      setInput(pastedText);
+      const pastedText = await navigator.clipboard.readText()
+      setInput(pastedText)
     } catch (err) {
-      return 'Unable to paste text';
+      return 'Unable to paste text'
     }
   }
   return (
