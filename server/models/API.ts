@@ -1,6 +1,6 @@
-import { Model, DataTypes, HasManyGetAssociationsMixin } from 'sequelize'
+import { Model, DataTypes, type HasManyGetAssociationsMixin } from 'sequelize'
 import sequelize from '../db'
-import ResponseTime from './ResponseTime'
+import type ResponseTime from './ResponseTime'
 
 class API extends Model {
   public id!: string

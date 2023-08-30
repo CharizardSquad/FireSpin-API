@@ -4,7 +4,8 @@ import sequelize from '../db'
 class ResponseTime extends Model {
   public id!: string
   public time!: number
-  public APIId!: string
+  public APIId!: number
+  public UserId!: number
 }
 
 ResponseTime.init({
@@ -14,7 +15,11 @@ ResponseTime.init({
     allowNull: false
   },
   APIId: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+  UserId: {
+    type: DataTypes.INTEGER,
     allowNull: false
   }
 }, { sequelize })
