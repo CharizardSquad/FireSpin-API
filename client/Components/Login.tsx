@@ -46,6 +46,7 @@ function Login (): ReactElement {
 
   return (
     <div>
+      <h1 id="loginText">LogIn</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" id="username" onChange={handleChange} value={username} name="username" />
