@@ -31,7 +31,7 @@ const userController = {
       if (user != null) {
         const passwordMatch: boolean = await bcrypt.compare(password, user.password)
         if (passwordMatch) {
-          const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' })
+          const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '3h' })
           res.locals.token = token
           res.locals.redirect = '/home'
         } else {
