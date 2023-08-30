@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Navbar First Snapshot Test 1`] = `
+<div
+  className="navBar"
+>
+  <button
+    className="navButton"
+    onClick={[Function]}
+    type="button"
+  >
+    SignOut
+  </button>
+  <button
+    className="navButton"
+    onClick={[Function]}
+    type="button"
+  >
+    History
+  </button>
+</div>
+`;
+
+exports[`Create Snapshots Check if Home snapshot matches 1`] = `
+<div>
+  <div
+    id="home-container"
+  >
+    <h1
+      id="homeText"
+    >
+      Home
+    </h1>
+    <input
+      className="input-API"
+      disabled={true}
+      onChange={[Function]}
+      placeholder="insert API here"
+      type="text"
+      value=""
+    />
+    <button
+      id="paste"
+      onClick={[Function]}
+      type="submit"
+    >
+      Paste
+    </button>
+    <input
+      className="call-freq"
+      onChange={[Function]}
+      placeholder="Calls"
+      type="text"
+      value=""
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Fetch Data
+    </button>
+  </div>
+  <div
+    className="navBar"
+  >
+    <button
+      className="navButton"
+      onClick={[Function]}
+      type="button"
+    >
+      SignOut
+    </button>
+    <button
+      className="navButton"
+      onClick={[Function]}
+      type="button"
+    >
+      History
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Create Snapshots Check if NavBar snapshot matches 1`] = `
+<div
+  className="navBar"
+>
+  <button
+    className="navButton"
+    onClick={[Function]}
+    type="button"
+  >
+    SignOut
+  </button>
+  <button
+    className="navButton"
+    onClick={[Function]}
+    type="button"
+  >
+    History
+  </button>
+</div>
+`;
+
+exports[`Create Snapshots Check if NavBar snapshot matches 2`] = `
+<div>
+  <div
+    id="home-container"
+  >
+    <h1
+      id="homeText"
+    >
+      Home
+    </h1>
+    <input
+      className="input-API"
+      disabled={true}
+      onChange={[Function]}
+      placeholder="insert API here"
+      type="text"
+      value=""
+    />
+    <button
+      id="paste"
+      onClick={[Function]}
+      type="submit"
+    >
+      Paste
+    </button>
+    <input
+      className="call-freq"
+      onChange={[Function]}
+      placeholder="Calls"
+      type="text"
+      value=""
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Fetch Data
+    </button>
+  </div>
+  <div
+    className="navBar"
+  >
+    <button
+      className="navButton"
+      onClick={[Function]}
+      type="button"
+    >
+      SignOut
+    </button>
+    <button
+      className="navButton"
+      onClick={[Function]}
+      type="button"
+    >
+      History
+    </button>
+  </div>
+</div>
+`;
