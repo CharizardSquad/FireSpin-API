@@ -81,7 +81,7 @@ const apiController = {
         const APIs = await user.getAPIs()
         const apiHistoryPromises = APIs.map(async (api: API) => {
           const responseTimes: ResponseTime[] = await api.getResponseTimes()
-          const responseTimesArray = responseTimes.map(rt => rt.time)
+          const responseTimesArray = responseTimes.map((rt) => rt.time)
           const numCalls = responseTimesArray.length
           const totalResponseTime = responseTimesArray.reduce((sum, time) => sum + time, 0)
           const averageResponseTime = numCalls === 0 ? 0 : totalResponseTime / numCalls
