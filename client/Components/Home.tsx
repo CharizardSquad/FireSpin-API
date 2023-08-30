@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 // import axios from 'axios'
 import NavBar from './NavBar'
 import LineGraph from './LineGraph'
+// import type { LocationState } from '../../types/types'
 
 function Home (): ReactElement {
   const location = useLocation()
@@ -12,7 +13,7 @@ function Home (): ReactElement {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    if (location.state && location.state.token) {
+    if (location.state.token) {
       setToken(location.state.token)
     }
   }, [location.state])
@@ -54,13 +55,13 @@ function Home (): ReactElement {
       }
 
       const responseData = await response.json()
-      console.log(responseData.length) // in ms?
+      // console.log(responseData.length) // in ms?
       setResponseTimes(responseData)
     } catch (err) {
       console.error('Error fetching data', err)
     }
   }
-  console.log('right before render:', responseTimes)
+  // console.log('right before render:', responseTimes)
   return (
     <div>
       <input

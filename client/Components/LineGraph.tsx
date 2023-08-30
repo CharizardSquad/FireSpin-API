@@ -17,7 +17,7 @@ Chart.register(
 function LineChart ({ responseTimes }: { responseTimes: number[] }): ReactElement {
   console.log('resTime in lineGraph:', responseTimes)
   const data = {
-    labels: responseTimes.map((_, index) => String(index)),
+    labels: responseTimes.map((index) => String(index)),
     datasets: [
       {
         label: 'Responce Time',
