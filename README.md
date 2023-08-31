@@ -15,6 +15,8 @@ FireSpin API is a web application that functions as a developer tool to referenc
 - Jest
 - Sequelize
 - PostgreSQL
+- Node
+- Express
 
 ## Interested in Iterating?
 Checkout our DEV Readme for more!
