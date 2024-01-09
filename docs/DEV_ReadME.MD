@@ -72,4 +72,4 @@ Last UI/UX design feature could be to mimic the process of loading up a GBA (Gam
 
 This should serve as an entry point for any developers who wish to iterate on ART and therefore, should be kept as up-to-date as possible. **At the end of your iteration, you are strongly encouraged to update this document for future developers.**
 
-Thank you for your consideration and let's work on making Swell one of the best open-source products to contribute!
+Thank you for your consideration and let's work on making FireSpin-API one of the best open-source products to contribute!
